@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>a_smooth_trip</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+<meta name="keywords" content="a_smooth_trip,travelling,agra,taxi,explore agra,pride of agra">
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- bootstrap-css -->
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<!--// bootstrap-css -->
+<!-- css -->
+<link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
+<!--// css -->
+<!-- font-awesome icons -->
+<link href="css/font-awesome.css" rel="stylesheet"> 
+<!-- //font-awesome icons -->
+<!-- gallery -->
+<link href='css/simplelightbox.min.css' rel='stylesheet' type='text/css'>
+<!-- //gallery -->
+<script src="js/jquery-1.11.1.min.js"></script>
+<script src="js/bootstrap.js"></script>
+<script type="text/javascript">
+	jQuery(document).ready(function($) 
+	{
+		$(".scroll").click(function(event)
+		{		
+			event.preventDefault();
+			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+		});
+	});
+</script> 
+</head>
+<body>	
+<!-- banner -->
+<div class="banner jarallax">
+	<div class="header">
+		<div class="header-left">
+			<div class="agileinfo-phone">
+				<p><i class="fa fa-volume-control-phone" aria-hidden="true"></i> +91-9627356564</p>
+			</div>
+			<div class="agileinfo-phone agileinfo-map">
+				<p><i class="fa fa-map-marker" aria-hidden="true"></i> Taj East Gate Road, 282001 Agra.</p>
+			</div>
+
+			<div class="clearfix"> </div>
+		</div>
+	</div>
+	<div class="w3-header-bottom">
+		<div class="w3layouts-logo">
+			<h1>
+				<a href="index.html" style="font-size:80%;">A_SMOOTH_TRIP</a>
+			</h1>
+		</div>
+		<div class="top-nav">
+					<nav class="navbar navbar-default">
+							<div class="navbar-header">
+									<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+										<span class="sr-only">Toggle navigation</span>
+										<span class="icon-bar"></span>
+										<span class="icon-bar"></span>
+										<span class="icon-bar"></span>
+									</button>
+								</div>
+								
+							<!-- Collect the nav links, forms, and other content for toggling -->
+							<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+								<ul class="nav navbar-nav">
+									<li class="first-list"><a class="active scroll" href="#home">Home</a></li>
+									<li><a href="#about" class="scroll">About</a></li>
+									<li><a href="#gallery" class="scroll">Gallery</a></li>
+									<li><a href="#team" class="scroll">Team</a></li>
+									<li><a href="#blog" class="scroll">Blog</a></li>
+									<li><a href="#contact" class="scroll">Contact</a></li>
+									<?php
+                                                                         error_reporting(0);
+                                                                         session_start();
+                                                                         $r=$_SESSION['login_user'];
+                                                                         if($r==true)
+                                                                         {
+                                                                          $db = mysqli_connect("localhost","root","","trip");
+                                                                          if($db)
+                                                                          {
+                                                                           $sql = "SELECT * FROM signin WHERE email = '$r'";
+                                                                           $result = mysqli_query($db,$sql);
+                                                                           $row=mysqli_fetch_row($result);
+                                                                           echo ("<li><a>$row[0]</a>
+
+<a href='login/logout.php'>Logout</a>
+
+</li>");
+
+                                                                          }      
+                                                                         }
+
+                                                                         else       
+                                                                         {
+
+  
+                                                                          echo ("<li><a href='login/logn.html'>LOGIN</a></li>");
+                                                                         }
+                                                                        ?>
+                                                                       
+								
+								</ul>	
+								<div class="clearfix"> </div>
+							</div>	
+						</nav>	
+			</div>
+			<div class="clearfix"> </div>
+		</div>	
+		<div class="banner-info">
+			<div class="container">
+				<div class="w3-banner-info">
+					<div class="slider">
+						<div class="callbacks_container">
+							<ul class="rslides 00 callbacks1" id="slider4">
+								<li>
+									<div class="w3layouts-banner-info">
+										<h3>welcome<span>to</span>agra.</h3>
+										<p>queries? love to hear from you.</p>
+										<div class="w3ls-button">
+											<a href="/A_smoth_trip/web/
+cab_booking_form/web/index.html">Book a Cab</a>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div class="w3layouts-banner-info">
+										<h3>explore<span>the</span>agra</h3>
+										<p>get in the holiday spirit with these agra favorites. </p>
+										<div class="w3ls-button">
+											<a href="/A_smoth_trip/web/cab_booking_form/web/index.html">Book a cab</a>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div>
+						<div class="clearfix"> </div>
+									<script>
+										// You can also use "$(window).load(function() {"
+										$(function () {
+										  // Slideshow 4
+										  $("#slider4").responsiveSlides({
+											auto: true,
+											pager:true,
+											nav:false,
+											speed: 400,
+											namespace: "callbacks",
+											before: function () {
+											  $('.events').append("<li>before event fired.</li>");
+											},
+											after: function () {
+											  $('.events').append("<li>after event fired.</li>");
+											}
+										  });
+									
+										});
+									 </script>
+									<!--banner Slider starts Here-->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- //banner -->
+	<!-- modal -->
+	<div class="modal about-modal fade" id="myModal" tabindex="-1" role="dialog">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header"> 
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
+					<h4 class="modal-title">A_SMOOOTH_TRIP</h4>
+				</div> 
+				<div class="modal-body">
+					<div class="agileits-w3layouts-info">
+						<img src="images/11.jpg" alt="" />
+						<p> Home to one of the 7 wonders of the world, the Taj Mahal, Agra is a sneak peek into the architectural history with other structures such as Agra Fort and Fatehpur Sikri and hence makes for a must visit for anyone living in or visiting India.<br>
+
+							When you talk about Agra, one thing has to stand out - yes, the Taj Mahal. Agra is host to the only one of the Seven Wonders of the World in India, Taj Mahal, which makes the whole country proud.<br> Apart from its monuments, the city also has some exciting stuff for foodies - including the famous Agra ka Petha and amazing chaat and Lassi.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- //modal -->
+	<!-- welcome -->
+	<div class="welcome">
+		<div class="container">
+			<div class="wthree-heading">
+				<h2>Welcome</h2>
+				<p>Agra is one of the most significant cities in the history of India. Situated on the banks of the river Yamuna, this beautiful city gained public interest when Sikander Lodhi decided to make Agra the capital city.</p>
+			</div>
+			<div class="w3-welcome-grids">
+				<div class="col-md-3 w3-welcome-grid">
+					<div class="w3-welcome-grid-info">
+						<img src="images/3.jpg" alt="" />
+						<h4>Fatehpur Sikri</h4>
+						<p>A city, predominantly made of red sandstone, Fatehpur Sikri was founded in 16th century by Mughal Emperor Akbar. It is a fine example of Mughal architecture.</p>
+					</div>
+				</div>
+				<div class="col-md-3 w3-welcome-grid">
+					<div class="w3-welcome-grid-info">
+						<img src="images/4.jpg" alt="" />
+						<h4>jama masjid</h4>
+						<p>This relatively simple mosque built almost entirely in red sandstone was built by Jahanara, the daughter of Shah Jahan. </p>
+					</div>
+				</div>
+				<div class="col-md-3 w3-welcome-grid">
+					<div class="w3-welcome-grid-info">
+						<img src="images/5.jpg" alt="" />
+						<h4>taj mahal</h4>
+						<p>The Taj Mahal is one of the seven wonders of the world and is considered to be the most popular tourist attraction in the country.Taj is located in the historical city of Agra. </p>
+					</div>
+				</div>
+				<div class="col-md-3 w3-welcome-grid">
+					<div class="w3-welcome-grid-info">
+						<img src="images/6.jpg" alt="" />
+						<h4> The Oberoi Amarvilas</h4>
+						<p>5-star  The Oberoi Amarvilas features landscaped gardens with ponds and water features. An Ayurvedic spa with a Turkish bath.</p>
+					</div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+	</div>
+	<!-- //welcome -->
+	<!-- about-bottom -->
+	<div class="about-bottom jarallax" id="about">
+		<!-- container -->
+		<div class="container">
+			<div class="wthree-heading about-heading">
+				<h3>About Us</h3>
+				<p style="font-size:110%;">A_Smooth_Trip is a leading provider of affordable &amp;
+					comfortable taxi service in the city of Taj - Agra and one can
+					book cab just by logging in to our website.</p>
+			</div>
+			<div class="about-bottom-grids">
+				<div class="col-md-6 about-bottom-left">
+					<h4></h4>
+					<p style="font-size:110%;"> We provide the best
+						facility and will make your journey a special one.
+						Our aim is to provide excellent comfort, security and experience
+						of both , our passengers and our drivers . We have a bunch of
+						trained and expert drivers at your service. We offers variety of
+						packages to make your trip more interesting and inexpensive.<br>
+						WE TRAVEL WITH CARE ….SAFE TRAVELS TO YOU AND YOUR FAMILY!!
+					</p>
+				</div>
+				<div class="col-md-6 about-bottom-left about-bottom-right">
+					<h4></h4>
+					<p style="font-size:110%;">A_Smooth_Trip is a destination discovery website that helps travellers 
+						find the right destinations according to their preferences and help 
+						them plan their holidays in a hassle free manner.<br>
+
+						At A_Smooth_Trip, we aim to make discovering your next holiday destination 
+						as much of an eye-opener as your vacation itself.
+					</p>
+				</div>
+				<div class="clearfix"> </div>
+			</div> 
+		</div>
+		<!-- //container -->
+	</div>
+	<!-- //about-bottom -->
+	<!-- offer -->
+	<div class="offer">
+		<div class="col-md-5 offer-left">
+			
+		</div>
+		<div class="col-md-7 offer-right">
+			<div class="wthree-heading offer-heading">
+				<h3>What We Offer</h3>
+			</div>
+			<h4> Get the celebrity treatment with world-class service at The Oberoi Amarvilas Agra</h4>
+			<p>5-star The Oberoi Amarvilas features landscaped gardens with ponds and water features.Boasting a Mughal-inspired décor, the spacious rooms at The Oberoi Amarvilas provide a flat-screen TV. A mini-bar is also available. Some rooms offer views of the pool or garden.Guests can work out at the fitness center or make use of the hotel’s jogging track. Other activities include golf at the putting green and bowling at the mall. A night club provides another entertainment option.Seven dining choices are available at the hotel. </p>
+		</div>
+		<div class="clearfix"> </div>
+	</div>
+	<!-- //offer -->
+	<!-- gallery -->
+	<div class="gallery" id="gallery">
+		<div class="container">
+			<div class="wthree-heading">
+				<h3>Gallery</h3>
+				<p> When you talk about Agra, It was during the Mughal Period when Agra gained some of the incredible monuments like the Taj Mahal, Buland Darwaza and the Agra Fort. Agra’s influence declined when Mughal’s influence declined. </p>
+			</div>
+			<div class=" w3-agileits-gallery">
+				<div class="gallery-bg">
+					<div class="gallery-bg-text effect-2">
+						<a href="images/g1.jpg" class="big"><img src="images/g1.jpg" alt="" title="Jama Masjid : This relatively simple mosque built almost entirely in red sandstone was built by Jahanara, the daughter of Shah Jahan. " /></a>
+					</div>
+				</div>
+				<div class="gallery-small gallery-middle">
+					<div class="gallery-small-text effect-3">
+						<a href="images/g2.jpg"><img src="images/g2.jpg" alt="" title="Red Fort : Also known as Lal Qila, Fort Rouge or Red Fort of Agra, the Agra Fort is a UNESCO world heritage site."/></a>
+					</div>
+				</div>
+				<div class="gallery-small gallery-middle">
+					<div class="gallery-small-text effect-3">
+						<a href="images/g3.jpg"><img src="images/g3.jpg" alt="" title="Hotel Clarks Shiraz : Offering an outdoor swimming pool, a massage parlour and a spa and wellness centre, Hotel Clarks Shiraz is located in Agra."/></a>
+					</div>
+				</div>
+				<div class="gallery-small gallery-middle">
+					<div class="gallery-small-text effect-3">
+						<a href="images/g4.jpg"><img src="images/g4.jpg" alt="" title=" Dolphin The Water World : Dolphin The Water World is North India's biggest water park situated on the outskirts of Agra City"/></a>
+					</div>
+				</div>
+				<div class="clearfix"></div>
+				
+				<div class="gallery-small gallery-middle">
+					<div class="gallery-small-text effect-3">
+						<a href="images/g5.jpg"><img src="images/g5.jpg" alt="" title=" Ramada Plaza Agra is set in Agra. There is a games room and shared lounge/TV area on-site. Free private parking is available."/></a>
+					</div>
+				</div>
+				<div class="gallery-bg">
+					<div class="gallery-bg-text effect-2">
+						<a href="images/g7.jpg" class="big"><img src="images/g7.jpg" alt="" title="Radisson Blu Agra Taj East Gate features a health club with infinity pool and spa, as well as 5 dining options. " /></a>
+					</div>
+				</div>
+				<div class="gallery-small gallery-middle">
+					<div class="gallery-small-text effect-3">
+						<a href="images/g6.jpg"><img src="images/g6.jpg" alt="" title="Mehtab Bagh is Located just north to the glorious wonder called the Taj Mahal and overlooking the Agra Fort and Yamuna river on the opposite side."/></a>
+					</div>
+				</div>
+				<div class="gallery-small gallery-middle">
+					<div class="gallery-small-text effect-3">
+						<a href="images/g8.jpg"><img src="images/g8.jpg" alt="" title="The Taj Mahal stands for the Crown of Palaces in the Persian language. It rises from the dust-beaten earth of Uttar Pradesh."/></a>
+					</div>
+				</div>
+				<div class="clearfix"></div>
+				
+				<div class="gallery-bg">
+					<div class="gallery-bg-text effect-2">
+						<a href="images/g9.jpg" class="big"><img src="images/g9.jpg" alt="" title="The Taj Mahal is one of the seven wonders of the world and is considered to be the most popular tourist attraction in the country. " /></a>
+					</div>
+				</div>
+				<div class="gallery-small gallery-middle">
+					<div class="gallery-small-text effect-3">
+						<a href="images/g2.jpg"><img src="images/g2.jpg" alt="" title="Also known as Lal Qila, Fort Rouge or Red Fort of Agra, the Agra Fort is a UNESCO world heritage site. It is situated at a distance of about 2.5km northwest of the famous Taj Mahal. "/></a>
+					</div>
+				</div>
+				<div class="gallery-small gallery-middle">
+					<div class="gallery-small-text effect-3">
+						<a href="images/g5.jpg"><img src="images/g5.jpg" alt="" title="Ramada Plaza Agra is set in Agra. There is a games room and shared lounge/TV area on-site. Free private parking is available."/></a>
+					</div>
+				</div>
+				<div class="gallery-small gallery-middle">
+					<div class="gallery-small-text effect-3">
+						<a href="images/g6.jpg"><img src="images/g6.jpg" alt="" title="Mehtab Bagh is a rare retreat of natural bliss and one of the most scenic spots in Agra."/></a>
+					</div>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="js/simple-lightbox.js"></script>
+	<script>
+				$(function(){
+					var $gallery = $('.gallery a').simpleLightbox();
+					
+					$gallery.on('show.simplelightbox', function(){
+						console.log('Requested for showing');
+					})
+					.on('shown.simplelightbox', function(){
+						console.log('Shown');
+					})
+					.on('close.simplelightbox', function(){
+						console.log('Requested for closing');
+					})
+					.on('closed.simplelightbox', function(){
+						console.log('Closed');
+					})
+					.on('change.simplelightbox', function(){
+						console.log('Requested for change');
+					})
+					.on('next.simplelightbox', function(){
+						console.log('Requested for next');
+					})
+					.on('prev.simplelightbox', function(){
+						console.log('Requested for prev');
+					})
+					.on('nextImageLoaded.simplelightbox', function(){
+						console.log('Next image loaded');
+					})
+					.on('prevImageLoaded.simplelightbox', function(){
+						console.log('Prev image loaded');
+					})
+					.on('changed.simplelightbox', function(){
+						console.log('Image changed');
+					})
+					.on('nextDone.simplelightbox', function(){
+						console.log('Image changed to next');
+					})
+					.on('prevDone.simplelightbox', function(){
+						console.log('Image changed to prev');
+					})
+					.on('error.simplelightbox', function(e){
+						console.log('No image found, go to the next/prev');
+						console.log(e);
+					});
+				});
+	</script>
+	<!-- //gallery -->
+	<!-- testimonial -->
+	<div class="testimonial">
+		<div class="container">
+			<div class="wthree-heading">
+				<h3>Testimonials</h3>
+				<p>When you talk about Agra, one thing has to stand out - yes, the Taj Mahal. Agra is host to the only one of the Seven Wonders of the World in India, Taj Mahal, which makes the whole country proud.</p>
+			</div>
+			<div class="testimonial-grids">
+				<div class="col-md-4 testimonial-grid">
+					<h4>Customer Says</h4>
+					<div class="testimonial-info">
+						<p><span>"</span>
+							
+							
+							A place that makes you fall in love with it every time you visit. Do visit early in the morning around sunrise or if u r lucky visit on a full moon night. Huge rush for night viewing. 
+							</p>
+						<h5> Shashwat Kant</h5>
+					</div>
+					<div class="testimonial-info">
+						<p><span>" </span> A must visit place to witness the grandeur of buland darwaza. Do hire a guide to get the complete story. </p>
+						<h5>rahul verma</h5>
+					</div>
+					<div class="testimonial-info">
+						<p><span>" </span> An Awesome Place know for its historic importance because agra is known for this fort ones very long time ago agra was the capital of mugal empire. </p>
+						<h5>gaurav pant</h5>
+					</div>
+				</div>
+				<div class="col-md-8 testimonial-grid-right">
+					<h4>Latest Offers</h4>
+					<div class="Works-grids">
+						<div class="col-md-4 Works-grid">
+							<img src="images/3.jpg" class="img-responsive" alt=""/>
+						<p>Fatehpur Sikri is home to Jodha Bai's palace, Jama Mosque, Buland Darwaza, and a Tomb of Salim Chisti among many other famous monuments, each of which, is an integral part of the Indian heritage. </p>
+						</div>
+						<div class="col-md-4 Works-grid">
+							<img src="images/4.jpg" class="img-responsive" alt=""/>
+						<p>The Mosque was built by Mughal emperor, Shah Jahan's daughter in 1648 A.D. Jahanara Begum. There was a spacious, octagonal Tripolia Chowk which existed between the Jama Masjid and the Delhi gate of the Agra Fort. </p>
+						</div>
+						<div class="col-md-4 Works-grid">
+							<img src="images/5.jpg" class="img-responsive" alt=""/>
+						<p> Shah Jahan said about the Taj that it made "the sun and the moon shed tears from their eyes".
+
+							The Taj Mahal stands for the Crown of Palaces in the Persian language. It rises from the dust-beaten earth of Uttar Pradesh.</p>
+						</div>
+							<div class="clearfix"></div>
+					</div>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+	</div>
+	<!-- //testimonial -->
+	<!-- team -->
+	<div class="team jarallax" id="team">
+		<div class="team-dot">
+			<div class="container">
+				<div class="wthree-heading about-heading">
+					<h3>Fantastic Team</h3>
+					<p>Each member of the team is watching your every gesture and will hear your every whisper. The message: You will be treated as a king, any whims! No potential customer will resist such recognition.</p>
+				</div>
+				<div class="agile-team-grids">
+				<div class="col-sm-1 team-grid">
+				</div>
+				<div class="agile-team-grids">
+					<div class="col-sm-2 team-grid">
+						<div class="flip-container">
+							<div class="flipper">
+								<div class="front">
+									<img src="images/t1.jpg" alt="" />
+								</div>
+								<div class="back">
+									<h4>Astha Agrawal</h4>
+									<p>Web Developer </p>
+									<div class="w3l-social">
+										<ul>
+											<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+											<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+											<li><a href="#"><i class="fa fa-rss"></i></a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-2 team-grid">
+						<div class="flip-container">
+							<div class="flipper">
+								<div class="front">
+									<img src="images/t2.jpg" alt="" />
+								</div>
+								<div class="back">
+									<h4>Abhishek Upadhyay</h4>
+									<p>Web Developer</p>
+									<div class="w3l-social">
+										<ul>
+											<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+											<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+											<li><a href="#"><i class="fa fa-rss"></i></a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="col-sm-2 team-grid">
+						<div class="flip-container">
+							<div class="flipper">
+								<div class="front">
+									<img src="images/t3.jpg" alt="" />
+								</div>
+								<div class="back">
+									<h4>Adarsh Kumar Singh</h4>
+									<p>Web Developer</p>
+									<div class="w3l-social">
+										<ul>
+											<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+											<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+											<li><a href="#"><i class="fa fa-rss"></i></a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-2 team-grid">
+						<div class="flip-container">
+							<div class="flipper">
+								<div class="front">
+									<img src="images/t4.jpg" alt="" />
+								</div>
+								<div class="back">
+									<h4>Aditi Sahai</h4>
+									<p>Web Developer</p>
+									<div class="w3l-social">
+										<ul>
+											<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+											<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+											<li><a href="#"><i class="fa fa-rss"></i></a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-2 team-grid">
+						<div class="flip-container">
+							<div class="flipper">
+								<div class="front">
+									<img src="images/t5.jpg" alt="" />
+								</div>
+								<div class="back">
+									<h4>Akhil Upadhyay</h4>
+									<p>Web Developer</p>
+									<div class="w3l-social">
+										<ul>
+											<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+											<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+											<li><a href="#"><i class="fa fa-rss"></i></a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+	</div>
+	<!-- //team -->
+	<!-- blog -->
+	<div id="blog" class="blog">
+		<div class="container">  
+			<div class="wthree-heading">
+				<h3>Blog</h3>
+				<p>A_Smooth_Trip is a travel planning platform which is now one of the biggest travel content platforms from India with over 4 Million monthly users. We are creating the best travel planning tools in the world with the most helpful and comprehensive travel content.</p>
+			</div>
+			<div class="blog-agileinfo">
+				<div class="col-md-6 blog-w3grid-img">
+					<a href="#myModal" data-toggle="modal" class="wthree-blogimg">  
+						<img src="images/4.jpg" class="img-responsive" alt=""/>
+					</a>  
+				</div>
+				<div class="col-md-6 blog-w3grid-text"> 
+					<h4><a href="#myModal" data-toggle="modal">Jama Masjid</a></h4>
+					<h6>By <a href="#"> Adarsh</a> - feb 25th, 2019 </h6>
+					<p>The Jama Masjid was built by Shah Jahan for his favourite daughter Jahan Ara Begum. Its construction began in 1648 and took six years to complete with the efforts of five thousand workers. The mosque had a large open area in its front, known as the Tripoli Chowk.</p>
+				</div> 
+				<div class="clearfix"> </div>
+			</div> 
+			<div class="blog-agileinfo blog-agileinfo-mdl">
+				<div class="col-md-6 blog-w3grid-img blog-img-rght">
+					<a href="#myModal" data-toggle="modal" class="wthree-blogimg">  
+						<img src="images/6.jpg" class="img-responsive" alt=""/>
+					</a>  
+				</div>
+				<div class="col-md-6 blog-w3grid-text"> 
+					<h4><a href="#myModal" data-toggle="modal">The Oberoi Amarvilas</a></h4>
+					<h6>By <a href="#"> Aditi</a> - Dec 31st, 2018 </h6>
+					<p>The Oberoi Amarvilas Agra boasts luxurious 5-star accommodation with a flat-screen TV. This property houses 4 dining options and provides free parking. Free WiFi is available in the rooms of the property.
+
+						Beautiful rooms come with stylish modern interiors and large windows. All the well-appointed units are equipped with a sofa, personal safe and private bathroom.</p>
+				</div> 
+				<div class="clearfix"> </div>
+			</div> 
+			<div class="blog-agileinfo">
+				<div class="col-md-6 blog-w3grid-img">
+					<a href="#myModal" data-toggle="modal" class="wthree-blogimg">  
+						<img src="images/5.jpg" class="img-responsive" alt=""/>
+					</a>  
+				</div>
+				<div class="col-md-6 blog-w3grid-text"> 
+					<h4><a href="#myModal" data-toggle="modal">Taj Mahal</a></h4>
+					<h6>By <a href="#"> Astha</a> - Dec 25th, 2016 </h6>
+					<p>Viewing the Taj Mahal at night is available on five days on a month, including a full moon night and two nights before and after the full moon. All these aspects, the dates and the timings for the night viewing of the Taj are decided by the Archaeological Survey of India. Viewing the Taj Mahal at night takes place between 8:30 PM to 12:30 PM in 8 batches of about 50 people for about 30 minutes each. Hence, only 400 people are allowed on a single night.</p>
+				</div> 
+				<div class="clearfix"> </div>
+			</div> 
+		</div>
+	</div>
+	<!-- //blog --> 
+	
+	<!-- contact -->
+	<div class="contact" id="contact">
+		<div class="container">
+			<div class="wthree-heading">
+				<h3>Contact Us</h3>
+		        <p>Have any questions? we'd love to here from you.<br>
+							here's how to get in touch with us.
+						</p>
+			</div>
+			<div class="address">
+				<div class="col-sm-4 address-grids">
+					<h4>Address :</h4>
+					<p>Taj East Gate Road,<br>
+						<span>282001 Agra,</span>
+						India
+					</p>	
+				</div>
+				<div class="col-sm-4 address-grids">
+					<h4>Phone :</h4>
+					<p>+91-9627356564</p>
+					<p>+91-8571887981</p>
+				</div>
+				<div class="col-sm-4 address-grids">
+					<h4>Email :</h4>
+					<p><a href="mailto:example@email.com">akhil.upadhyay_bca17@gla.ac.in</a></p>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+			<div class="contact-form">
+				<h4>Contact Form</h4>
+				<form action="#" method="post">
+					<div class="fields-grid">
+						<div class="styled-input agile-styled-input-top">
+							<input type="text" name="Full Name" required="">
+							<label>Full Name</label>
+							<span></span>
+						</div>
+						<div class="styled-input agile-styled-input-top">
+							<input type="text" name="Phone" required=""> 
+							<label>Phone</label>
+							<span></span>
+						</div>
+						<div class="styled-input">
+							<input type="email" name="Email" required=""> 
+							<label>Email</label>
+							<span></span>
+						</div> 
+						<div class="styled-input">
+							<input type="text" name="Subject" required="">
+							<label>Subject</label>
+							<span></span>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+					<div class="styled-input textarea-grid">
+						<textarea name="Message" required=""></textarea>
+						<label>Message</label>
+						<span></span>
+					</div>	 
+					<input type="submit" value="SEND">
+				</form>
+			</div>
+		</div>
+	</div>
+	<!-- //contact -->
+	<!-- footer -->
+		<footer>
+			<div class="w3ls-footer-grids">
+				<div class="container">
+					<div class="col-md-4 w3l-footer one">
+						<h3>About Company</h3>
+						<p> We provide the best facility and will make your journey a special one. Our aim is to provide excellent comfort, security and experience of both , our passengers and our drivers . We have a bunch of trained and expert drivers at your service.</p>
+						<p class="adam">- Akhil Upadhyay, CEO</p>
+						<div class="clearfix"></div>
+					</div>
+					<div class="col-md-4 w3l-footer one tweet">
+						<h3>Tweets</h3>
+						<ul>
+							<li>
+								<a href="#"><i class="fa fa-twitter"></i>Agra is well known city of india. It is very historical city and there are various story and monuments in agra.
+								<i>nitin_palya442@gmail.com</i></a>
+								<span>About 15 minutes ago<span>
+							</span></span></li>
+							<li>
+								<a href="#"> <i class="fa fa-twitter"></i>Agra is a Great Historical Place and for Tourists who's interested in Historical place there are so many place such as " Taj Mahal, Red Fort, Buland etc. 
+								<i>rgupta241@gmail.com</i></a>
+								<span>About a day ago<span>
+							</span></span></li>
+						</ul>
+					</div>
+					<div class="col-md-4 w3l-footer three">
+						<h3>Contact Information</h3>
+						<ul>
+							<li><i class="fa fa-map-marker"></i><p>A_Smooth_Trip<span>Taj East Gtae Road,</span>282001 Agra.</p><div class="clearfix"></div> </li>
+							<li><i class="fa fa-phone"></i><p>91-9627356564</p> <div class="clearfix"></div> </li>
+							<li><i class="fa fa-envelope-o"></i><a href="mailto:info@example.com">akhil.upadhyay_bca17@gla.ac.in</a> <div class="clearfix"></div></li>
+						</ul>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+			</div>
+			
+		</footer>
+	<!-- //footer -->
+	<script src="js/responsiveslides.min.js"></script>
+	<script src="js/jarallax.js"></script>
+	<script src="js/SmoothScroll.min.js"	></script>
+	<script type="text/javascript">
+		/* init Jarallax */
+		$('.jarallax').jarallax({
+			speed: 0.5,
+			imgWidth: 1366,
+			imgHeight: 768
+		})
+	</script>
+
+	<script type="text/javascript" src="js/move-top.js"></script>
+	<script type="text/javascript" src="js/easing.js"></script>
+	<!-- here stars scrolling icon -->
+	<script type="text/javascript">
+		$(document).ready(function() {
+			
+				var defaults = {
+				containerID: 'toTop', // fading element id
+				containerHoverID: 'toTopHover', // fading element hover id
+				scrollSpeed: 1200,
+				easingType: 'linear' 
+				};
+			
+								
+			$().UItoTop({ easingType: 'easeOutQuart' });
+								
+			});
+	</script>
+	<!-- //here ends scrolling icon -->
+</body>	
+</html>
